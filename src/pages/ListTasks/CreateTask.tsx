@@ -35,17 +35,14 @@ const CreateTask = ({ onConfirm }: Readonly<CreateTaskProps>) => {
     completed: false,
   });
 
-  const { fetchData, loading } = useFetch<Task>(
-    "https://dummyjson.com/todos/add",
-    {
-      lazy: true,
-      method: "POST",
-    }
-  );
+  const { fetchData, loading } = useFetch<Task>("todos/add", {
+    lazy: true,
+    method: "POST",
+  });
 
   const onCreate = useCallback(
     async (task: Omit<Task, "id">) => {
-      const result = await fetchData(`https://dummyjson.com/todos/add`, {
+      const result = await fetchData(`todos/add`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...task, userId: user!.id }),

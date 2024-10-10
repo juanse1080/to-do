@@ -13,7 +13,10 @@ const useFetch = <T>(url: string, options?: useFetchOptions<T>) => {
   const fetchData = useCallback(async (url: string, options?: RequestInit) => {
     try {
       setLoading(true);
-      const response = await fetch(url, options);
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/${url}`,
+        options
+      );
       if (!response.ok) throw new Error(response.statusText);
 
       const json = await response.json();

@@ -26,22 +26,19 @@ const TaskItem = ({
 }: Readonly<TaskItemProps>) => {
   const [isCompleted, setIsCompleted] = useState(completed ?? false);
 
-  const { data, loading, fetchData } = useFetch<Task>(
-    `https://dummyjson.com/todos/${id}`,
-    {
-      lazy: true,
-      initialData: {
-        id,
-        todo,
-        completed: isCompleted,
-      },
-    }
-  );
+  const { data, loading, fetchData } = useFetch<Task>(`todos/${id}`, {
+    lazy: true,
+    initialData: {
+      id,
+      todo,
+      completed: isCompleted,
+    },
+  });
 
   const toggleState = useCallback(
     async (event: ChangeEvent<HTMLInputElement>) => {
       setIsCompleted(event.target.checked);
-      fetchData(`https://dummyjson.com/todos/${id}`, {
+      fetchData(`todos/${id}`, {
         method: "PUT",
         body: JSON.stringify({ completed: event.target.checked }),
       });

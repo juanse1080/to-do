@@ -26,16 +26,13 @@ const Login = () => {
     password: "",
   });
 
-  const { error, fetchData, loading } = useFetch<User>(
-    "https://dummyjson.com/user/login",
-    {
-      lazy: true,
-      method: "POST",
-    }
-  );
+  const { error, fetchData, loading } = useFetch<User>("user/login", {
+    lazy: true,
+    method: "POST",
+  });
 
   const onLogin = async (user: LoginInput) => {
-    const result = await fetchData(`https://dummyjson.com/user/login`, {
+    const result = await fetchData(`user/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...user, expiresInMins: 30 }),

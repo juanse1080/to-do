@@ -15,14 +15,14 @@ const DeleteTask = ({
   onConfirm,
   handleClose,
 }: Readonly<DeleteTaskProps>) => {
-  const { fetchData, loading } = useFetch<Task>("https://dummyjson.com/todos", {
+  const { fetchData, loading } = useFetch<Task>("todos", {
     lazy: true,
     method: "DELETE",
   });
 
   const onDelete = useCallback(
     async (task: Task) => {
-      await fetchData(`https://dummyjson.com/todos/${task?.id}`, {
+      await fetchData(`todos/${task?.id}`, {
         method: "DELETE",
       });
 

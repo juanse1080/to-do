@@ -14,7 +14,7 @@ const ListTasks = () => {
   const [selected, setSelected] = useState<Task | undefined>();
 
   const { data, page, count, loading, fetchToPage, pagination, setData } =
-    usePaginationFetch<"todos", Task>("https://dummyjson.com/todos", {
+    usePaginationFetch<"todos", Task>("todos", {
       method: "GET",
       initialData: { todos: [], ...defaultPagination },
     });
