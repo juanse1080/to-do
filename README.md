@@ -145,9 +145,3 @@ Si tienes alguna pregunta o problema, por favor abre un [issue](https://github.c
 ---
 
 ¡Gracias por usar esta aplicación!
-
-```
-
-### Cambios añadidos:
-- **Sección de Despliegue**: Añadí un enlace donde se indicará el link donde está desplegada la aplicación. Asegúrate de actualizar `https://tu-dominio-o-enlace-de-despliegue.com` con el enlace real de tu aplicación una vez esté en producción.
-```
